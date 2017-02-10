@@ -1,0 +1,24 @@
+﻿@model GiftMaker.Models.GiftViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @using (Ajax.BeginForm("GiftMaker", "Home",
+                    new AjaxOptions
+                    {
+                        LoadingElementId = "loader",
+                        InsertionMode = InsertionMode.Replace, //target element(#patientList) will be replaced
+                        UpdateTargetId = "gift-container",
+                    }))
+    {
+        @Html.TextBoxFor(m => m.Message)
+
+        <input type="submit" value="Create Gif" />
+    }
+
+    <div id="gift-container">
+        
+    </div>
+
+</div>
